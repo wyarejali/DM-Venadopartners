@@ -760,7 +760,7 @@ a {
 /* ------------------------------ OUR COMPANIES ---------------------------- */
 .adv {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(16px, 2vw, 30px);
 }
 .adv__card {
@@ -798,7 +798,7 @@ a {
 
 .adv__media {
     position: relative;
-    aspect-ratio: 19 / 12;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: var(--ink-deep);
 }
@@ -816,7 +816,7 @@ a {
     transform: scale(1.08);
     filter: saturate(0.92) contrast(1.05) brightness(1);
 }
-/* keeps the three references reading as one set, and ties them to the palette */
+/* keeps the references reading as one set, and ties them to the palette */
 .adv__media::after {
     content: '';
     position: absolute;
@@ -860,11 +860,21 @@ a {
     text-transform: uppercase;
     color: var(--ink);
 }
+.adv__lead {
+    margin-top: 18px;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: var(--fs-h3);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+}
 .adv__text {
-    margin-top: 16px;
+    margin-top: 10px;
     color: var(--ink-soft);
     font-size: var(--fs-small);
     line-height: 1.65;
+    max-width: 52ch;
 }
 
 /* The link stretches over the whole card, so the card is one click target. */
@@ -903,6 +913,73 @@ a {
 .adv__card:has(.adv__link:focus-visible) {
     outline: 2px solid var(--gold-hi);
     outline-offset: 3px;
+}
+
+/* ------------------------------- HOW WE WORK ----------------------------- */
+.lanes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 30px);
+}
+.lane {
+    position: relative;
+    background: var(--card);
+    border: var(--line);
+    border-radius: 2px;
+    padding: clamp(28px, 3.2vw, 44px);
+}
+.lane::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    width: 3px;
+    background: var(--foil);
+}
+.lane__for {
+    font-family: var(--mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--bronze);
+}
+.lane__title {
+    margin-top: 16px;
+    max-width: 22ch;
+}
+.lane__text {
+    margin-top: 14px;
+    color: var(--ink-soft);
+    max-width: 44ch;
+}
+
+.pledge {
+    margin-top: clamp(44px, 5vw, 72px);
+    padding-top: clamp(32px, 3.6vw, 48px);
+    border-top: var(--line);
+    text-align: center;
+}
+.pledge__text {
+    max-width: 30ch;
+    margin-inline: auto;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 1.05rem + 1.7vw, 2.375rem);
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    text-wrap: balance;
+}
+.pledge__by {
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze);
 }
 
 /* --------------------------------- CONTACT ------------------------------- */
@@ -1099,8 +1176,8 @@ a {
     .hero__plat {
         max-width: 320px;
     }
-    .adv {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    .adv,
+    .lanes {
         gap: 14px;
     }
     .adv__word {
@@ -1322,6 +1399,16 @@ a {
 
     .wwd__actions .btn {
         width: 100%;
+    }
+
+    .lanes {
+        grid-template-columns: 1fr;
+    }
+    .pledge {
+        text-align: left;
+    }
+    .pledge__text {
+        margin-inline: 0;
     }
 
     .adv__card {
