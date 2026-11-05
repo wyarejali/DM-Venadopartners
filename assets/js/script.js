@@ -13,7 +13,6 @@
     var progressBar = document.getElementById('progressBar');
     var parallaxTargets = [
         { img: document.getElementById('heroImg'), depth: 0.07 },
-        { img: document.getElementById('bandImg'), depth: 0.09 },
     ].filter(function (t) {
         return t.img;
     });
@@ -108,7 +107,7 @@
     }
 
     /* ------------------------------------------------ hash landing on arrival */
-    /* Loading or refreshing straight onto /#advantage makes the browser jump before
+    /* Loading or refreshing straight onto /#companies makes the browser jump before
      the webfonts have settled, so the section can end up tens of pixels under the
      header. Re-apply the landing once things stop moving, and only while the
      visitor has not already taken the scroll over themselves. */
